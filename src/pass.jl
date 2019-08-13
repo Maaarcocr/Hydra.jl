@@ -362,5 +362,5 @@ using InteractiveUtils: typesof
 
 macro code_spmd(ex)
   @capture(ex, f_(xs__)) || error("@code_spmd f(xs...)")
-  :(IRTools.code_ir($(esc(f)), typesof($(xs...))) |> pass)
+  :(IRTools.code_ir($(esc(f)), typesof($(esc(xs...)))) |> pass)
 end
